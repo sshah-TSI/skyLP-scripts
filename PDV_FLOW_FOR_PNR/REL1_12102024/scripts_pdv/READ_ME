@@ -1,0 +1,26 @@
+PDV flow - How to run?
+
+##########################################################################################################################################################################################
+
+create_venv.sh --> source the file to get into the python virtual ENV, this step is needed because the PDV flow uses certain python module that are not available by default for all users
+
+##########################################################################################################################################################################################
+
+Once into the VENV, run the command 
+	"python3 run_auto_pv.py --help" ---- to get the help message for the usage of the script
+	"python3 run_auto_pv.py --yaml <yaml_file_path, in our case setup_pdv.yaml> --run_tag <PnR run tag for which PDV must be run>" ---- Command to run PDV flow
+
+##########################################################################################################################################################################################
+
+Dont touch files :-
+001_layout_merge.tcl  002_smartfill_merge.csh  003_v2lvs_script.tcl  004_run_DRC.sh  005_run_LVS.sh  006_run_DFM.sh  007_run_FLT.sh
+
+The above files are used by the main script for flow purposes. Its a good idea NOT to make any edits to these files.
+
+##########################################################################################################################################################################################
+
+PDV_GOLDEN_SETTING.yaml :- Golden settings for each run. DO NOT EDIT.
+
+##########################################################################################################################################################################################
+
+setup_pdv.yaml :- One config file for user to edit. Pretty much self explanatory. Make sure this file is set up correctly before giving any PDV run.

@@ -1,0 +1,23 @@
+DESIGN_NAME : 'scuw'                                #Top Cell Name
+DESIGN_STAGE : 'postroute'                      #floorplan/postroute
+
+SLURM_VAR :
+        - CPU : '8'                             #4/8 ONLY
+          MEMORY : '32'                         #32/64 ONLY
+
+SELECT_RUN :
+        - 001_LAYOUT_MERGE : 'YES'              #YES by Default
+          002_SMARFILL_MERGE : 'YES'            #YES by Default
+          003_V2LVS : 'YES'                     #YES by Default
+
+          004_DRC :
+                - RUN_BASE_ONLY : 'NO'
+                  RUN_ALL : 'YES'               #If set to YES, Priority will be given to RUN_ALL
+
+          005_LVS :                             #At Stage FP, Extract only will be run                  
+                - POWER_NAMES : 'VDD'           #Separate by space
+                  GROUND_NAMES : 'VSS'          #Separate by space
+
+          006_DFM : 'NO'                        #NO by Default
+          007_FLT : 'NO'                        #NO by Default
+          008_PERC : 'NO'                       #NO by Default
